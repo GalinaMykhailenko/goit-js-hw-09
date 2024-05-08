@@ -1,5 +1,7 @@
+
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+
 
 
 const images = [
@@ -87,6 +89,13 @@ function createMarkup() {
     })
     .join("");
   gallery.insertAdjacentHTML("beforeend", galleryItems);
-
 }
+
 createMarkup();
+
+
+const simpleLightbox = new SimpleLightbox('.gallery a', {
+  captionsData: "alt",
+  captionDelay: 250
+});
+
