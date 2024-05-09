@@ -28,7 +28,6 @@ function handleSubmit(event) {
     event.target.reset();
     localStorage.setItem(formData, JSON.stringify(formDataObject));
 
-    // Очистити дані з локального сховища після подання форми
     localStorage.removeItem(formData);
 }
 
