@@ -7,7 +7,6 @@ const textarea = form.querySelector("textarea");
 form.addEventListener("submit", handleSubmit);
 emailInput.addEventListener("input", handleInput);
 textarea.addEventListener("input", handleInput);
-populateForm();
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -28,6 +27,9 @@ function handleSubmit(event) {
     console.log(formDataObject);
     event.target.reset();
     localStorage.setItem(formData, JSON.stringify(formDataObject));
+
+    // Очистити дані з локального сховища після подання форми
+    localStorage.removeItem(formData);
 }
 
 function handleInput() {
@@ -47,3 +49,6 @@ function populateForm() {
         textarea.value = message;
     }
 }
+
+
+populateForm();
