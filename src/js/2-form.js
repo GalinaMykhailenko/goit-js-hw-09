@@ -7,16 +7,16 @@ const textarea = form.querySelector("textarea");
 form.addEventListener("submit", handleSubmit);
 emailInput.addEventListener("input", handleInput);
 textarea.addEventListener("input", handleInput);
-populateTextarea();
+populateForm();
 
 function handleSubmit(event) {
     event.preventDefault();
 
-    const emailValue = email.value.trim();
-    const messageValue = message.value.trim();
+    const emailValue = emailInput.value.trim();
+    const messageValue = textarea.value.trim();
 
     if (!emailValue || !messageValue) {
-        alert("Fill please all fields");
+        alert("Please fill in all fields");
         return;
     }
 
@@ -29,7 +29,6 @@ function handleSubmit(event) {
     event.target.reset();
     localStorage.setItem(formData, JSON.stringify(formDataObject));
 }
-
 
 function handleInput() {
     const formDataObject = {
@@ -48,4 +47,3 @@ function populateForm() {
         textarea.value = message;
     }
 }
-
